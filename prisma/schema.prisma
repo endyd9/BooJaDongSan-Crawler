@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Apt {
+  id               Int    @id @default(autoincrement())
+  name             String
+  dedicatedArea    Int
+  floor            Int
+  buildYear        Int
+  treadDate        Int
+  treadAmount      Int
+  cityCode         String
+  dong             String
+  roadName         String
+  buildingNum      Int
+  buildingMinorNum Int
+  view             Int    @default(0)
+  Like             Like[]
+}
+
+model Like {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  userId    Int
+  aptId     Int
+  Apt       Apt      @relation(fields: [aptId], references: [id])
+  User      User     @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  email     String   @unique
+  password  String
+  nickName  String
+  address   String?
+  Like      Like[]
+}
