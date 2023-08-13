@@ -14,7 +14,7 @@ model Apt {
   floor            Int
   buildYear        Int
   treadDate        Int
-  treadAmount      String
+  treadAmount      Int
   cityCode         Int
   dong             String
   roadName         String @default("Null")
