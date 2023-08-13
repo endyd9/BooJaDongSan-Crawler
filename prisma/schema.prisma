@@ -14,12 +14,12 @@ model Apt {
   floor            Int
   buildYear        Int
   treadDate        Int
-  treadAmount      Int
-  cityCode         String
+  treadAmount      String
+  cityCode         Int
   dong             String
-  roadName         String
-  buildingNum      Int
-  buildingMinorNum Int
+  roadName         String @default("Null")
+  buildingNum      String @default("0")
+  buildingMinorNum String @default("0")
   view             Int    @default(0)
   Like             Like[]
 }
