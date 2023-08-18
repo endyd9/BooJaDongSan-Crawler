@@ -13,7 +13,7 @@ model Apt {
   dedicatedArea    Int
   floor            Int
   buildYear        Int
-  treadDate        Int
+  treadDate        String
   treadAmount      Int
   cityCode         Int
   dong             String
